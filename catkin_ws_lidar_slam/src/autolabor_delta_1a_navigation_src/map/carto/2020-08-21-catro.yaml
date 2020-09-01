@@ -1,0 +1,7 @@
+image: 2020-08-21-catro.pgm
+resolution: 0.050000
+origin: [-2.912481, -6.766505, 0.000000]
+negate: 0
+occupied_thresh: 0.65
+free_thresh: 0.196
+

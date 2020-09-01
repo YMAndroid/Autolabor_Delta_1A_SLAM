@@ -1,0 +1,12 @@
+官网地址：http://www.autolabor.com.cn/
+##1.介绍
+##该工程的作用是通过键盘的上下左右键控制小车前进、后退、左转、右转等。
+
+##2.编译
+## 将工程拷贝到ROS下的工作空间src目录下，例如：~/catkin_ws/src/
+## 执行编译指令
+$ cd ~/catkin_ws/src/
+$ catkin_make
+
+编译完成后会生成 keyboard_control_node 可执行节点，需要配合autolabor_pro1的小车驱动进行使用。 
+

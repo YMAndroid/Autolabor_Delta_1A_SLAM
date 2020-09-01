@@ -1,0 +1,24 @@
+官网地址：http://www.autolabor.com.cn/
+##1.介绍
+##该工程的作用是提供小车的ROS驱动
+
+##2.编译
+## 将工程拷贝到ROS下的工作空间src目录下，例如：~/catkin_ws/src/
+## 执行编译指令
+$ cd ~/catkin_ws/src/
+$ catkin_make
+
+##3.执行
+###3.1 小车与电脑连接
+#####使用小车的USB线一头连接小车，一头连接电脑，打开小车的电源开关。
+
+###3.2 开启小车USB端口权限
+$ ll /dev/ttyUSB0
+$ sudo chmod 777 /dev/ttyUSB0
+###3.2 运行驱动程序
+$ cd ~/catkin_ws/src/
+$ source devel/setup.bash 
+$ roslaunch autolabor_pro1_driver driver.launch
+
+###如果想使用键盘控制小车，则运行:
+$ roslaunch autolabor_pro1_driver keyboard_move.launch

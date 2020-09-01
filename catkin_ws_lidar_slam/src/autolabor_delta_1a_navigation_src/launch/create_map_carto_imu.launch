@@ -1,0 +1,69 @@
+<launch>
+    <arg name="model" />
+    <arg name="gui" default="false" />
+
+    <param name="robot_description" textfile="$(find autolabor_description)/urdf/autolabor_pro1.urdf" />
+    <param name="use_gui" value="$(arg gui)" />
+
+    <!-- mynteye 小觅相机驱动 -->
+    <include file = "/home/ym/MYNT-EYE-S-SDK/wrappers/ros/src/mynt_eye_ros_wrapper/launch/mynteye.launch" />
+
+    <!-- autolabor pro 1 驱动 -->
+    <node name="autolabor_driver" pkg="autolabor_pro1_driver" type="autolabor_pro1_driver" output="screen">
+        <param name="port_name" value="/dev/autolabor" />
+        <param name="odom_frame" value="odom" />
+        <param name="base_frame" value="base_link" />
+
+        <param name="baud_rate" value="115200" />
+        <param name="control_rate" value="10" />
+        <param name="sensor_rate" value="5" />
+
+        <param name="reduction_ratio" value="1.0" />
+        <param name="encoder_resolution" value="1600.0" />
+
+        <param name="wheel_diameter" value="0.25" />
+        <param name="model_param" value="0.80" />
+        <param name="pid_rate" value="50.0" />
+        <param name="maximum_encoding" value="32.0" />
+    </node>
+
+    <!-- 雷达驱动 -->
+    <!--<include file = "$(find delta_lidar)/launch/delta_lidar.launch" />  -->
+    <node name="delta_lidar" pkg="delta_lidar" type="delta_lidar_node" output="screen">
+        <param name="serial_port" value="/dev/lidar"/>
+        <param name="serial_baudrate" value="230400"/>
+        <param name="frame_id" value="lidar"/>
+        
+        <param name="angle_compensate" value="true"/>
+    </node>
+   
+
+    <!-- <node name="mynteye_wrapper_node" pkg="mynt_eye_ros_wrapper" type="mynteye_wrapper_node" output="screen" respawn="true" respawn_delay="10"/> -->
+
+    <!-- 键盘遥控 -->
+    <node name="keyboard_control" pkg="autolabor_keyboard_control" type="keyboard_control_node">
+        <param name="linear_min" value="0.3" />
+        <param name="linear_max" value="0.75" />
+        <param name="linear_step" value="0.2" />
+
+        <param name="angular_min" value="0.314" />
+        <param name="angular_max" value="1.57" />
+        <param name="angular_step" value="0.314" />
+    </node>
+    <!--cartographer_ros-->
+     <include file = "/home/ym/catkin_ws_carto/src/cartographer_ros/cartographer_ros/launch/delta_lidar_2d_imu.launch" />
+
+     <!--<node name="cartographer_node" pkg="cartographer_ros"
+    	type="cartographer_node" args="
+          -configuration_directory $(find autolabor_box_launch)/param/cartographer
+          -configuration_basename backpack_2d.lua"
+	output="screen">
+    </node> -->
+
+    <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
+    <!-- <node name="rviz" pkg="rviz" type="rviz" args="-d $(find autolabor_box_launch)/rviz/create_map.rviz" /> -->
+    <node pkg="tf" type="static_transform_publisher" name="base_link_to_laser" args="0.0 0.0 0.65 0.0 0.0 0.0 /base_link /lidar 100" />
+    <node pkg="tf" type="static_transform_publisher" name="base_link_to_imu" args="0.18 0 0.60 1.57 -1.57 0 /base_link /camera_imu_frame 100" />
+
+</launch>

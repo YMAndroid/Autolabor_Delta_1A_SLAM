@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package>
+  <name>autolabor_keyboard_control</name>
+  <version>0.1.0</version>
+  <description>The autolabor_keyboard_control package</description>
+  <maintainer email="shichunguo@gmail.com">Colin</maintainer>
+
+  <license>MIT</license>
+
+  <author >Colin</author>
+
+  <build_depend>roscpp</build_depend>
+  <run_depend>roscpp</run_depend>
+  <build_depend>geometry_msgs</build_depend>
+  <run_depend>geometry_msgs</run_depend>
+  
+
+  <buildtool_depend>catkin</buildtool_depend>
+</package>

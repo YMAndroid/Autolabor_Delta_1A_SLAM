@@ -1,0 +1,4 @@
+#!/bin/bash
+chmod 664 /dev/input/event*
+echo 'KERNEL=="event*", OWNER="root", GROUP="input", MODE="0664"' > /etc/udev/rules.d/99-inputevent.rules
+

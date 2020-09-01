@@ -1,0 +1,6 @@
+<launch>
+  <node name="delta_lidar"    pkg="delta_lidar"  type="delta_lidar_node" output="screen">
+  <param name="serial_port"         type="string" value="/dev/lidar"/>
+  <param name="frame_id"            type="string" value="base_laser"/>
+  </node>
+</launch>

@@ -1,0 +1,16 @@
+<launch>
+    <!-- 键盘遥控 -->
+    <node name="keyboard_control" pkg="autolabor_keyboard_control" type="keyboard_control_node">
+        <param name="linear_min" value="0.3" />
+        <param name="linear_max" value="0.75" />
+        <param name="linear_step" value="0.2" />
+
+        <param name="angular_min" value="0.314" />
+        <param name="angular_max" value="1.57" />
+        <param name="angular_step" value="0.314" />
+    </node>
+   
+    
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find autolabor_box_launch)/rviz/navigation.rviz" />
+
+</launch>

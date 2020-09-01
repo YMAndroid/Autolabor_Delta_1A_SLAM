@@ -1,0 +1,18 @@
+<robot name="autolabor_description">
+  <link name="base_link">
+    <visual>
+      <origin
+        xyz="0. 0. 0.05"
+        rpy="1.57 0. 1.57" />
+      <geometry>
+        <mesh
+          filename="package://autolabor_description/meshes/autolabor_mini.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+  </link>
+</robot>

@@ -1,0 +1,20 @@
+autolabor官网地址：http://www.autolabor.com.cn/
+
+1.介绍
+##该工程作用是建立小车模型，目前建立了两种模型：
+##1.1 autolabor_pro1
+##1.2 autolabor_mini
+
+
+2.运行
+##2.1 编译
+## 将工程拷贝到ROS下的工作空间src目录下，例如：~/catkin_ws/src/
+## 执行编译指令
+$ cd ~/catkin_ws/src/
+$ catkin_make
+
+##2.2运行指令：
+## 运行autolabor_pro1 小车模型指令
+$ roslaunch autolabor_description display_autolabor_pro1.launch
+## 运行autolabor_mini 小车模型指令
+$ roslaunch autolabor_description display_autolabor_mini.launch

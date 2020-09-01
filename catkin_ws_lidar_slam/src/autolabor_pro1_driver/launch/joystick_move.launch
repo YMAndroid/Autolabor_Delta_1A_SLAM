@@ -1,0 +1,32 @@
+<launch>
+    <node name="joy" pkg="joy" type="joy_node" />
+
+    <node name="joy_to_twist" pkg="joy_to_twist" type="joy_to_twist">
+	<param name="linear_min" value="0.1" />
+	<param name="linear_max" value="1.0" />
+	<param name="linear_step" value="0.1" />
+
+	<param name="angular_min" value="0.1" />
+	<param name="angular_max" value="1.0" />
+	<param name="angular_step" value="0.1" />
+    </node>
+
+    <node name="autolabor_driver" pkg="autolabor_pro1_driver" type="autolabor_pro1_driver" output="screen">
+	<param name="port_name" value="/dev/ttyUSB0" />
+	<param name="odom_frame" value="odom" />
+	<param name="base_frame" value="base_link" />
+
+	<param name="baud_rate" value="115200" />
+	<param name="control_rate" value="10" />
+	<param name="sensor_rate" value="5" />
+
+	<param name="reduction_ratio" value="1.0" />
+	<param name="encoder_resolution" value="1600.0" />
+
+	<param name="wheel_diameter" value="0.25" />
+	<param name="model_param_cw" value="0.80" />
+	<param name="model_param_acw" value="0.80" />
+	<param name="pid_rate" value="50.0" />
+	<param name="maximum_encoding" value="32.0" />
+    </node>
+</launch>
