@@ -1,17 +1,17 @@
-### 1、单线激光雷达SLAM建图与路径规划
+# 单线激光雷达SLAM建图与路径规划
 
-所使用的硬件：autolabor pro1小车、小觅双目相机(S1030标准版本)、IntelNUC迷你主机、显示器、2D激光雷达 Delta-1A
+使用的硬件：autolabor pro1小车、小觅双目相机(S1030标准版本)、IntelNUC迷你主机、显示器、2D激光雷达 Delta-1A  
 
-所使用的软件：ubuntu 16.04 LTS、ROS-kinetic、小觅驱动、autolabor pro1小车驱动、Delta-1A驱动、VINS-Fusion算法、ROS-navigation导航包、gmapping建图算法、cartographer_ros建图算法
+使用的软件：ubuntu 16.04 LTS、ROS-kinetic、小觅驱动、autolabor pro1小车驱动、Delta-1A驱动、VINS-Fusion算法、ROS-navigation导航包、gmapping建图算法、cartographer_ros建图算法  
 
-### tf介绍
-tf变换：map(地图坐标系)-->odom(里程计坐标系)——>base_link(小车基座坐标系)——>传感器坐标系(lidar、camera)  
-       ---- map-->odom 由建图算法提供
-       ---- odom --> base_link 由小车驱动提供
-       ---- base_link --> 传感器坐标系 根据传感器在小车上安装的位置确定，使用static_transform_publisher静态坐标转换来设置 
+## tf介绍
+tf变换：map(地图坐标系)-->odom(里程计坐标系)——>base_link(小车基座坐标系)——>传感器坐标系(lidar、camera)    
+       ---- map-->odom 由建图算法提供  
+       ---- odom --> base_link 由小车驱动提供  
+       ---- base_link --> 传感器坐标系 根据传感器在小车上安装的位置确定，使用static_transform_publisher静态坐标转换来设置   
 
-所需传感器数据类型: sensor_msgs/LaserScan  使用Delta-1A驱动发布的雷达扫描话题，话题名：/scan  
-所需里程计信息数据类型：nav_msgs/Odometry   使用autolabor pro1发布的里程计，话题名：/wheel_odom  
+所需传感器数据类型: sensor_msgs/LaserScan  使用Delta-1A驱动发布的雷达扫描话题，话题名：/scan    
+所需里程计信息数据类型：nav_msgs/Odometry   使用autolabor pro1发布的里程计，话题名：/wheel_odom    
 
 
 ### 1 建图
