@@ -17,7 +17,7 @@ tf变换：map(地图坐标系)-->odom(里程计坐标系)——>base_link(小�
 
 ### gmapping建图：(雷达+小车)
 打开终端，执行如下指令: 
-$ cd ~/test_0812/ 
+$ cd ~/catkin_ws_lidar_slam/ 
 $ source devel/setup.bash 
 $ roslaunch autolabor_box_launch create_map_gmapping.launch ####打开小车urdf模型、驱动、键盘控制节点、打开雷达驱动、打开gmapping节点、打开rviz可视化节点 
 ####此时使用键盘的上下左右键控制小车移动，开始建图 
@@ -26,7 +26,7 @@ $ rosrun map_server map_saver -f map_name ####保存地图 map_name为保存地�
 
 ### cartographer_ros建图:(雷达+小车)
 ##打开终端，执行如下指令：   
-$ cd ~/test_0812/   
+$ cd ~/catkin_ws_lidar_slam/   
 $ source devel/setup.bash  
 $ roslaunch autolabor_box_launch create_map_cartographer.launch  
 ####此时使用键盘的上下左右键控制小车移动，开始建图  
@@ -34,7 +34,7 @@ $ roslaunch autolabor_box_launch create_map_cartographer.launch
 $ rosrun map_server map_saver -f map_name  
 
 ### cartographer_ros建图:(雷达+小车+IMU)   
-$ cd ~/test_0812/  
+$ cd ~/catkin_ws_lidar_slam/  
 $ roslaunch autolabor_box_launch create_map_cartographer_imu.launch  
 ####此时使用键盘的上下左右键控制小车移动，开始建图  
 ####建图完成后，开启新的终端执行如下指令，保存地图：  
@@ -45,7 +45,7 @@ $ rosrun map_server map_saver -f map_name
 
 ### gmapping算法建立的地图进行定位与路径规划
 打开终端，执行如下指令：  
-$ cd ~/test_0812/  
+$ cd ~/catkin_ws_lidar_slam/  
 $ source devel/setup.bash  
 $ roslaunch autolabor_box_launch gmap_navigation.launch ####打开小车urdf模型、驱动、键盘控制节点、打开雷达驱动、打开map_server节点、打开move_base节点、打开acml节点、打开rviz可视化节点  
 
@@ -53,7 +53,7 @@ $ roslaunch autolabor_box_launch gmap_navigation.launch ####打开小车urdf模�
 
 ### cartographer_ros算法建立的地图进行定位与路径规划  
 打开终端，执行如下指令：  
-$ cd ~/test_0812/  
+$ cd ~/catkin_ws_lidar_slam/  
 $ source devel/setup.bash  
 $ roslaunch autolabor_box_launch carto_navigation.launch  
 
