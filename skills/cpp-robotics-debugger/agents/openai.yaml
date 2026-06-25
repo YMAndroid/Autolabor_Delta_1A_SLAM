@@ -1,0 +1,4 @@
+interface:
+  display_name: "C++ Robotics Debugger"
+  short_description: "C++ ROS bug localization workflow"
+  default_prompt: "Use cpp-robotics-debugger to inspect this C++ robotics project, build a concise map, localize the likely bug with evidence, and update project memory when useful."
