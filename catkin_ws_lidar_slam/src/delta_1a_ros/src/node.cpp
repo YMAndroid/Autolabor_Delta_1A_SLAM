@@ -117,7 +117,7 @@ int main(int argc, char * argv[])
     }
 
     printf("3iRoboticsLidar connected\n");
-
+//走串口协议
     robotics_lidar.initilize(&serial_connect);
 
     ros::Time start_scan_time;
